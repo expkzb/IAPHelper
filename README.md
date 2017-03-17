@@ -14,7 +14,7 @@ IAP helper for Apple in app purchases. It uses ARC and blocks for ease of use. R
 ### Cocoapod
 
 ```
-pod 'IAPHelper'，:git => "https://github.com/expkzb/IAPHelper"
+pod 'IAPHelper', :git => "https://github.com/expkzb/IAPHelper"
 ```
 
 
