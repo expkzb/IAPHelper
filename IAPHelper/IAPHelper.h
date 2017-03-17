@@ -10,7 +10,7 @@
 #import "StoreKit/StoreKit.h"
 
 
-typedef void (^IAPProductsResponseBlock)(SKProductsRequest* request , SKProductsResponse* response);
+typedef void (^IAPProductsResponseBlock)(SKProductsRequest* request , SKProductsResponse* response, NSError *error);
 
 typedef void (^IAPbuyProductCompleteResponseBlock)(SKPaymentTransaction* transcation);
 

@@ -95,9 +95,13 @@
     self.request = nil;
 
     if(_requestProductsBlock) {
-        _requestProductsBlock (request,response);
+        _requestProductsBlock (request,response, nil);
     }
 
+}
+
+- (void)request:(SKRequest *)request didFailWithError:(NSError *)error {
+    self.requestProductsBlock(self.request, nil, error);
 }
 
 - (void)recordTransaction:(SKPaymentTransaction *)transaction {    
