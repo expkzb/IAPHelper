@@ -151,9 +151,12 @@ if(![IAPShare sharedHelper].iap) {
 
 [IAPShare sharedHelper].iap.production = NO;
 
-  [[IAPShare sharedHelper].iap requestProductsWithCompletion:^(SKProductsRequest* request,SKProductsResponse* response)
+  [[IAPShare sharedHelper].iap requestProductsWithCompletion:^(SKProductsRequest* request,SKProductsResponse* response, NSError *error)
    {
-       if(response > 0 ) {
+       if(error){
+           NSLog(@"请求发生错误！");
+       }
+       if(response > 0 ) {
        SKProduct* product =[[IAPShare sharedHelper].iap.products objectAtIndex:0];
 
         NSLog(@"Price: %@",[[IAPShare sharedHelper].iap getLocalePrice:product]);
