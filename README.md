@@ -1,3 +1,5 @@
+## !!! 在原有类库的基础上，增加了请求错误时的 block 参数
+
 IAP helper for Apple in app purchases. It uses ARC and blocks for ease of use. Ready to use with newsstand subscriptions.
 
 ##Require
@@ -39,7 +41,7 @@ if(![IAPShare sharedHelper].iap) {
 ### Request Products
 
 ```objc
-[[IAPShare sharedHelper].iap requestProductsWithCompletion:^(SKProductsRequest* request,SKProductsResponse* response)
+[[IAPShare sharedHelper].iap requestProductsWithCompletion:^(SKProductsRequest* request,SKProductsResponse* response, NSError *error)
      {
 
      }];
