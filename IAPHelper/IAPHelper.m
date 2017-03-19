@@ -102,6 +102,7 @@
 
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error {
     self.requestProductsBlock(self.request, nil, error);
+    self.requestProductsBlock = nil;
 }
 
 - (void)recordTransaction:(SKPaymentTransaction *)transaction {    
