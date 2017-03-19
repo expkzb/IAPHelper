@@ -1,3 +1,5 @@
+## !!! 在原有类库的基础上，增加了请求错误时的 block 参数
+
 IAP helper for Apple in app purchases. It uses ARC and blocks for ease of use. Ready to use with newsstand subscriptions.
 
 ##Require
@@ -14,7 +16,7 @@ IAP helper for Apple in app purchases. It uses ARC and blocks for ease of use. R
 ### Cocoapod
 
 ```
-pod 'IAPHelper'
+pod 'IAPHelper', :git => "https://github.com/expkzb/IAPHelper"
 ```
 
 
@@ -39,7 +41,7 @@ if(![IAPShare sharedHelper].iap) {
 ### Request Products
 
 ```objc
-[[IAPShare sharedHelper].iap requestProductsWithCompletion:^(SKProductsRequest* request,SKProductsResponse* response)
+[[IAPShare sharedHelper].iap requestProductsWithCompletion:^(SKProductsRequest* request,SKProductsResponse* response, NSError *error)
      {
 
      }];
@@ -149,9 +151,12 @@ if(![IAPShare sharedHelper].iap) {
 
 [IAPShare sharedHelper].iap.production = NO;
 
-  [[IAPShare sharedHelper].iap requestProductsWithCompletion:^(SKProductsRequest* request,SKProductsResponse* response)
+  [[IAPShare sharedHelper].iap requestProductsWithCompletion:^(SKProductsRequest* request,SKProductsResponse* response, NSError *error)
    {
-       if(response > 0 ) {
+       if(error){
+           NSLog(@"请求发生错误！");
+       }
+       if(response > 0 ) {
        SKProduct* product =[[IAPShare sharedHelper].iap.products objectAtIndex:0];
 
         NSLog(@"Price: %@",[[IAPShare sharedHelper].iap getLocalePrice:product]);
