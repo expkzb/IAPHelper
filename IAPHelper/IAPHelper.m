@@ -96,6 +96,7 @@
 
     if(_requestProductsBlock) {
         _requestProductsBlock (request,response, nil);
+        _requestProductsBlock = nil;
     }
 
 }
