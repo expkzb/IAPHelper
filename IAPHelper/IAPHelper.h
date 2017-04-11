@@ -35,6 +35,7 @@ typedef void (^resoreProductsCompleteResponseBlock) (SKPaymentQueue* payment,NSE
 
 //Buy Product
 - (void)buyProduct:(SKProduct *)productIdentifier onCompletion:(IAPbuyProductCompleteResponseBlock)completion;
+- (void)buyProduct:(SKProduct *)productIdentifier applicationUserName:(NSString *)userName onCompletion:(IAPbuyProductCompleteResponseBlock)completion;
 
 //restore Products
 - (void)restoreProductsWithCompletion:(resoreProductsCompleteResponseBlock)completion;

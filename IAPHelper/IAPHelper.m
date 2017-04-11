@@ -227,17 +227,20 @@
     }
 }
 
+- (void)buyProduct:(SKProduct *)productIdentifier applicationUserName:(NSString *)userName onCompletion:(IAPbuyProductCompleteResponseBlock)completion {
+        self.buyProductCompleteBlock = completion;
+            
+                self.restoreCompletedBlock = nil;
+                    SKMutablePayment *payment = [SKMutablePayment paymentWithProduct:productIdentifier];
+                        payment.applicationUsername = userName;
+                            
+                                if ([SKPaymentQueue defaultQueue]) {
+                                            [[SKPaymentQueue defaultQueue] addPayment:payment];
+                                                }
+}
+
 - (void)buyProduct:(SKProduct *)productIdentifier onCompletion:(IAPbuyProductCompleteResponseBlock)completion {
-    
-    self.buyProductCompleteBlock = completion;
-    
-    self.restoreCompletedBlock = nil;
-    SKPayment *payment = [SKPayment paymentWithProduct:productIdentifier];
-
-    if ([SKPaymentQueue defaultQueue]) {
-        [[SKPaymentQueue defaultQueue] addPayment:payment];
-    }
-
+        [self buyProduct:productIdentifier applicationUserName:nil onCompletion:completion];
 }
 
 -(void)restoreProductsWithCompletion:(resoreProductsCompleteResponseBlock)completion {
