@@ -17,7 +17,6 @@
 
 @interface IAPHelper()
 @property (nonatomic,copy) IAPProductsResponseBlock requestProductsBlock;
-@property (nonatomic,copy) IAPbuyProductCompleteResponseBlock buyProductCompleteBlock;
 @property (nonatomic,copy) resoreProductsCompleteResponseBlock restoreCompletedBlock;
 @property (nonatomic,copy) checkReceiptCompleteResponseBlock checkReceiptCompleteBlock;
 
