@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "IAPHelper"
-  s.version      = "1.5"
+  s.version      = "1.6"
   s.summary      = "In App Purchases Helper."
   s.homepage     = "https://github.com/expkzb/IAPHelper"
   s.license  = "MIT"
